@@ -188,7 +188,7 @@ function createTheme(colors: any): EuiChartThemeType {
         maxFontSize: 16,
         fillLabel: {
           valueFont: {
-            fontWeight: 700,
+            fontWeight: 600,
           },
         },
         linkLabel: {
