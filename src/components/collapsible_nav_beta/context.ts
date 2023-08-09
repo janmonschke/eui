@@ -6,11 +6,19 @@
  * Side Public License, v 1.
  */
 
-import React from 'react';
-import { mount as cypressMount } from 'cypress/react';
-import { EuiProvider } from '../../../src';
+import { createContext } from 'react';
 
-Cypress.Commands.add('mount', (children, options = {}) => {
-  const { providerProps } = options;
-  return cypressMount(<EuiProvider {...providerProps}>{children}</EuiProvider>);
-});
+import { _EuiFlyoutSide } from '../flyout/flyout';
+
+type _EuiCollapsibleNavContext = {
+  isCollapsed: boolean;
+  isPush: boolean;
+  side: _EuiFlyoutSide;
+};
+
+export const EuiCollapsibleNavContext =
+  createContext<_EuiCollapsibleNavContext>({
+    isCollapsed: false,
+    isPush: true,
+    side: 'left',
+  });
