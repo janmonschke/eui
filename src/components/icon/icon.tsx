@@ -12,6 +12,7 @@ import React, {
   ComponentType,
   SVGAttributes,
   CSSProperties,
+  useMemo,
 } from 'react';
 import classNames from 'classnames';
 
@@ -267,7 +268,7 @@ export class EuiIconClass extends PureComponent<
     const classes = classNames('euiIcon', className);
 
     // Emotion styles
-    const styles = euiIconStyles(theme);
+    const styles = useMemo(() => euiIconStyles(theme), [theme]);
     const cssStyles = [
       styles.euiIcon,
       styles[size],
